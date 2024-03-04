@@ -2,8 +2,10 @@
 .project
 .settings/
 target/
-*/.classpath
-*/.factorypath
+dependency-reduced-pom.xml
+*.iml
+
+*/.idea/
 */.project
 */.settings/
 */target/
