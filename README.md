@@ -9,7 +9,7 @@ packages.
 Just define this plugin in your Maven pom.xml and configure which artifacts and packages must be
 included:
 
-```
+```xml
 <plugin>
   <groupId>io.codegen.micronaut</groupId>
   <artifactId>micronaut-import-plugin</artifactId>
@@ -32,7 +32,7 @@ included:
 By default, a factory class is generated for each matching java package in the matching
 dependencies, which allows Micronaut to directly access package protected fields:
 
-```
+```java
 package java.packagename;
 
 import io.micronaut.context.annotation.Factory;
@@ -49,7 +49,7 @@ public class ImportFactory {}
 
 When the property `targetPackage` is set a factory is generated in this package with all the
 matching packages:
-```
+```java
 package target.package;
 
 import io.micronaut.context.annotation.Factory;
@@ -68,7 +68,7 @@ public class ImportFactory {}
 ## Releasing
 
 Create and deploy the release artifacts:
-```
+```bash
 export GPG_TTY=$(tty)
 
 NEXT_VERSION=$(mvn help:evaluate -Dexpression="jgitver.next_patch_version" -q -DforceStdout)
