@@ -1,3 +1,3 @@
-File touchFile = new File( basedir, "target/touch.txt" );
+File importFactory = new File( basedir, "target/generated-sources/plugin/io/micronaut/core/convert/ImportFactory.java" );
 
-assert touchFile.isFile()
+assert importFactory.isFile()

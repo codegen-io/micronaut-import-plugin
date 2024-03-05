@@ -6,6 +6,7 @@
   <groupId>io.codegen.micronaut.it</groupId>
   <artifactId>simple-it</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
 
   <description>A simple IT verifying the basic use case.</description>
 
@@ -13,18 +14,32 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
+  <dependencies>
+    <dependency>
+      <groupId>io.micronaut</groupId>
+      <artifactId>micronaut-core</artifactId>
+      <version>4.3.9</version>
+    </dependency>
+    <dependency>
+      <groupId>io.micronaut</groupId>
+      <artifactId>micronaut-inject</artifactId>
+      <version>4.3.9</version>
+    </dependency>
+  </dependencies>
   <build>
     <plugins>
       <plugin>
         <groupId>@project.groupId@</groupId>
         <artifactId>@project.artifactId@</artifactId>
         <version>@project.version@</version>
+        <configuration>
+          <includePackageFilter>io.micronaut.core.convert.*</includePackageFilter>
+          <excludePackageFilter>.*\.exceptions</excludePackageFilter>
+        </configuration>
         <executions>
           <execution>
-            <id>touch</id>
-            <phase>validate</phase>
             <goals>
-              <goal>touch</goal>
+              <goal>generate-imports</goal>
             </goals>
           </execution>
         </executions>

@@ -10,11 +10,22 @@
   <packaging>jar</packaging>
   <name>Test MyMojo</name>
 
+  <dependencies>
+    <dependency>
+      <groupId>io.micronaut</groupId>
+      <artifactId>micronaut-core</artifactId>
+      <version>4.3.9</version>
+    </dependency>
+  </dependencies>
+
   <build>
     <plugins>
       <plugin>
         <artifactId>maven-my-plugin</artifactId>
         <configuration>
+          <includePackageFilter>io.micronaut.core.convert.*</includePackageFilter>
+          <excludePackageFilter>.*\.exceptions</excludePackageFilter>
+
           <!-- Specify the MyMojo parameter -->
           <outputDirectory>target/test-harness/project-to-test</outputDirectory>
         </configuration>
