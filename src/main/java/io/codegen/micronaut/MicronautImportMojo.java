@@ -70,7 +70,7 @@ public class MicronautImportMojo extends AbstractMojo {
    * classes be compiled and included in the project artifact.
    */
   @Parameter(defaultValue = "true")
-  private boolean addCompileSourceRoot = true;
+  boolean addCompileSourceRoot = true;
 
   /** Regexp pattern which allows including certain dependencies. */
   @Parameter(defaultValue = "^.*:.*$", required = true)
@@ -126,6 +126,7 @@ public class MicronautImportMojo extends AbstractMojo {
         packages.stream()
             .filter(includePackage.asPredicate())
             .filter(excludePackage.asPredicate().negate())
+            .sorted()
             .collect(Collectors.toList());
 
     getLog().info("Filtered Packages:\n" + String.join("\n", filtered));
